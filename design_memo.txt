@@ -1,0 +1,24 @@
+The doctor reporting structure is naturally represented by a tree because each
+doctor can report to one parent while overseeing up to two direct reports in
+this assignment's binary-tree model. The links preserve those relationships
+without requiring a fixed-size table, and they make it straightforward to add a
+doctor at a particular position. A tree also reflects the hierarchy more clearly
+than a flat list: the root is the top-level doctor, and each path describes a
+chain of reporting relationships.
+
+Traversal order is useful when a program needs to process every node for a
+particular purpose. Preorder visits a parent before its descendants, which can
+be useful for copying or serializing a hierarchy while recording where each
+subtree begins. Inorder visits the left subtree, node, then right subtree; it is
+especially useful for binary search trees because it produces sorted values.
+Postorder processes descendants before their parent, making it suitable for
+deleting a tree safely or evaluating expression trees after their operands.
+
+A min-heap helps model emergency intake because it keeps the patient with the
+lowest urgency score at the root, so the highest-priority patient can be
+inspected or removed efficiently. New arrivals can be inserted while restoring
+the heap property, and serving a patient moves the last entry to the root and
+restores order. This avoids sorting the entire queue every time someone arrives
+or is served. A heap is useful when priorities change the service order, though
+a real emergency system would also need policies for ties, changing urgency,
+fairness, and clinical overrides.
